@@ -1,0 +1,9 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+0. from 3x3 to 9x9
+1. a nested array
+2. the sleep() function that prints out "WELCOME TO GAME OF FIFTEEN" before sleeping for 2x10^6 microseconds, or 2 seconds.
+3. init, draw, move, won functions.
