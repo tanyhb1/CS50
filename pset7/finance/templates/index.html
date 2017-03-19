@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<table style="width:100%">
+  <tr>
+    <th>Name</th> 
+    <th>Symbol</th> 
+    <th>Quantity</th>
+    <th>Current Price</th>
+    <th>Total Value</th>
+
+  </tr>
+  <tr>
+    <td>{% for a in range(length) %}
+        <p>{{stocks[a]["name"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{stocks[a]["symbol"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{stocks[a]["quantity"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{stocks_current[a]["price"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{sum123[a]}} <p>
+      {% endfor %}</td>
+
+  </tr>
+  <tr>
+    <th>Current Balance</th>
+    <th>Total Worth</th>
+  </tr>
+  <tr>
+    <td><p>{{balance}}<p></td>
+    <td><p>{{worth}}<p></td>
+  </tr>
+</table>
+{% endblock %}

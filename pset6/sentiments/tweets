@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import nltk
+import helpers
+
+from analyzer import Analyzer
+from nltk.tokenize import TweetTokenizer
+from termcolor import colored
+
+def main():
+    # ensure proper usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets (screen_name)")
+        
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+    analyzer = Analyzer(positives, negatives)
+    
+    screen_name = sys.argv[1]
+    screen_name = screen_name.lstrip("@")
+    
+    timeline = helpers.get_user_timeline(screen_name)
+    
+    if timeline == None:
+        sys.exit("Invalid screen name or user has a private profile.")
+    
+    tknzr = TweetTokenizer()
+    for line in timeline:
+        score = 0
+        tokens = tknzr.tokenize(line)
+        for e in tokens:
+            e = e.lower()
+            score = score + analyzer.analyze(e)
+        if score > 0.0:
+            print(colored("{} - {}".format(score, line), "green"))
+        elif score < 0.0:
+            print(colored("{} - {}".format(score, line), "red"))
+        else:
+            print(colored("{} - {}".format(score, line), "yellow"))
+
+    
+    
+
+
+if __name__ == "__main__":
+    main()

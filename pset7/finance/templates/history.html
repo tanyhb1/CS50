@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<table style="width:100%">
+  <tr>
+    <th>Name</th> 
+    <th>Symbol</th> 
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total Value</th>
+    <th>State</th>
+    <th>Date and Time</th>
+
+  </tr>
+  <tr>
+    <td>{% for a in range(length) %}
+        <p>{{stocks[a]["name"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{stocks[a]["symbol"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{stocks[a]["quantity"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{stocks[a]["price"]}}<p>
+      {% endfor %}</td>
+          <td>{% for a in range(length) %}
+        <p>{{stocks[a]["total"]}} <p>
+      {% endfor %}</td>
+        <td>{% for a in range(length) %}
+        <p>{{stocks[a]["buy"]}}<p>
+      {% endfor %}</td> 
+      <td>{% for a in range(length) %}
+        <p>{{stocks[a]["date"]}}<p>
+      {% endfor %}</td> 
+
+  </tr>
+</table>
+{% endblock %}
