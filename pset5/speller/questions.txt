@@ -1,0 +1,16 @@
+0.  an artificial long word said to mean a lung disease caused by inhaling very fine ash and sand dust.
+
+1.  getrusage() returns resource usage measures for who, which can be one of the following: RUSAGE_SELF, RUSAGE_CHILDREN, RUSAGE_THREAD
+
+2.  16
+
+3.  if we pass them by value, we would have to copy the entire structs & its 16 members, wasting time and memory. instead, by passing them by reference, we can use the already created structs, before and after, to calculate.
+
+4.  the for-loop iterates over every character in the text, one character at a time by using c=fgetc(fp) as the initialiser and the condition. for each character it 'gets', 
+    it checks to see if it is alphabetical, and stores it into an array called word. if the character is numerical, it iterates over the entire numerical string until it reaches the end before restarting the index and 
+    preparing for a new word. for the loop to determine if it reaches the end of a string, it checks together with the alphabetical condition whether the character is '\' AND whether index is > 0 (which implies that it is 
+    in the middle of a string, and the '\' tells us that it has reached the end). once we have found a string that has been ended with '\', i.e. a word, we terminate it with "\0", update our word counter, and check that it is 
+    correct with our check() function. if it is misspelled (not inside the dictionary provided), we increment mispellings, and finally we set our index back to 0 to prepare for a new word.
+5.  it takes time to allocate memory for the string before we check it, and also it does not allow us to check for alphanumeric strings without the implications of further iterating over the string to check.
+
+6.  they were not meant to be modified, therefore we set them to be const to assure that they are not modified.
